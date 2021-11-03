@@ -39,6 +39,8 @@ public class MeshGenerator : MonoBehaviour
 
         rotation = new Quaternion();
         rotation.eulerAngles = rotationEulerAngles;
+
+        gameObject.layer = 9;
     }
 
     // Update is called once per frame

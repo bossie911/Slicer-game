@@ -2,14 +2,43 @@
 
 public class ScraperMovement : MonoBehaviour
 {
-
     public Rigidbody scraper;
-    public Vector3 velocity = new Vector3(0, 0, 2);
-
+    public bool scraperDown = false;
+    public Vector3 velocity = new Vector3(0, -2, 2);
 
     // Update is called once per frame
     void Update()
     {
-        scraper.velocity = velocity;
+        if (Input.GetMouseButtonDown(0) || (Input.GetMouseButtonDown(0) && scraperDown))
+        {
+            scraper.AddForce(transform.forward, ForceMode.Impulse);
+            scraper.AddForce(transform.up, ForceMode.Impulse);
+        }
+        if (scraperDown && !Input.GetMouseButton(0))
+        {
+            scraper.velocity = velocity;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Scrapeable")
+        {
+            scraper.constraints = RigidbodyConstraints.FreezePositionX;
+            scraper.constraints = RigidbodyConstraints.FreezeRotation;
+            scraperDown = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Scrapeable")
+        {
+            scraper.constraints = RigidbodyConstraints.None;
+            scraper.constraints = RigidbodyConstraints.FreezePositionX;
+            scraper.constraints = RigidbodyConstraints.FreezeRotationY;
+            scraper.constraints = RigidbodyConstraints.FreezeRotationZ;
+            scraperDown = false;
+        }
     }
 }

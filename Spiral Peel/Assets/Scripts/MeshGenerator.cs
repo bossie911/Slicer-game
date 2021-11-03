@@ -41,6 +41,7 @@ public class MeshGenerator : MonoBehaviour
         rotation.eulerAngles = rotationEulerAngles;
 
         gameObject.layer = 9;
+        gameObject.tag = "Spiral";
     }
 
     // Update is called once per frame

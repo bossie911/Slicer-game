@@ -13,8 +13,9 @@ public class ScraperMovement : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) || (Input.GetMouseButtonDown(0) && scraperDown))
         {
-            scraper.AddForce(transform.forward * strengthForward, ForceMode.Impulse);
-            scraper.AddForce(-transform.up * strengthUp, ForceMode.Impulse);
+            scraper.velocity = Vector3.zero;
+            scraper.AddForce(transform.TransformDirection(transform.forward * strengthForward), ForceMode.Impulse);
+            scraper.AddForce(transform.TransformDirection(-transform.up * strengthUp), ForceMode.Impulse);
         }
         if (scraperDown && !Input.GetMouseButton(0))
         {

@@ -29,7 +29,11 @@ public class ClickListener : MonoBehaviour
             // Tell the spiralGenerator to stop scraping
             if (spiralGenerator && startedSpiral)
             {
-                spiralGenerator.GetComponent<MeshGenerator>().StopScraping();
+                MeshGenerator meshGenerator = spiralGenerator.GetComponent<MeshGenerator>();
+                meshGenerator.StopScraping();
+
+                int spiralSize = meshGenerator.spiralSize;
+
                 spiralGenerator.GetComponent<Rigidbody>().AddForce(transform.TransformDirection(transform.forward * 15), ForceMode.Impulse);
                 spiralGenerator.GetComponent<Rigidbody>().AddForce(transform.TransformDirection(transform.up * 30), ForceMode.Impulse);
                 startedSpiral = false;

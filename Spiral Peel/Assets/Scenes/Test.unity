@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2767,13 +2767,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.06219456, y: -0.46480536, z: -0.01055505, w: 0.8831628}
-  m_LocalPosition: {x: 29.65, y: 11.17, z: -17.53}
+  m_LocalRotation: {x: 0.16773126, y: -0.25488698, z: 0.044943444, w: 0.95125127}
+  m_LocalPosition: {x: 7, y: 6, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 5.742, y: -55.736004, z: -4.407}
+  m_LocalEulerAnglesHint: {x: 20, y: -30, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2787,7 +2787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scraper: {fileID: 982160593}
-  offset: {x: 20, y: 0, z: -10}
+  offset: {x: 7, y: 3, z: -6}
 --- !u!1 &982160589
 GameObject:
   m_ObjectHideFlags: 0
@@ -2797,10 +2797,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 982160593}
+  - component: {fileID: 982160594}
   - component: {fileID: 982160592}
   - component: {fileID: 982160591}
   - component: {fileID: 982160590}
-  - component: {fileID: 982160594}
   m_Layer: 8
   m_Name: Scraper
   m_TagString: Scraper
@@ -2900,9 +2900,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scraper: {fileID: 982160590}
   scraperDown: 0
-  velocity: {x: 0, y: -10, z: 0}
-  strengthForward: 7.5
-  strengthUp: 1
+  velocity: {x: 0, y: -2, z: 2}
+  strengthForward: 5
+  strengthUp: 50
 --- !u!1001 &982396719
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4439,7 +4439,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1358151082}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.501215, y: 1.1, z: 21.31}
+  m_LocalPosition: {x: -6.501215, y: -3.7247, z: 21.31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 660226120}

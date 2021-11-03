@@ -4,15 +4,17 @@ public class ScraperMovement : MonoBehaviour
 {
     public Rigidbody scraper;
     public bool scraperDown = false;
-    public Vector3 velocity = new Vector3(0, -2, 2);
+    public Vector3 velocity = new Vector3(0, 0, 2);
+    public float strengthForward = 5;
+    public float strengthUp = 5;
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0) || (Input.GetMouseButtonDown(0) && scraperDown))
         {
-            scraper.AddForce(transform.forward, ForceMode.Impulse);
-            scraper.AddForce(transform.up, ForceMode.Impulse);
+            scraper.AddForce(transform.forward * strengthForward, ForceMode.Impulse);
+            scraper.AddForce(-transform.up * strengthUp, ForceMode.Impulse);
         }
         if (scraperDown && !Input.GetMouseButton(0))
         {

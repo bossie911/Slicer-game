@@ -41,6 +41,7 @@ public class MeshGenerator : MonoBehaviour
         rotation.eulerAngles = rotationEulerAngles;
 
         gameObject.layer = 9;
+        gameObject.tag = "Spiral";
     }
 
     // Update is called once per frame
@@ -204,6 +205,6 @@ public class MeshGenerator : MonoBehaviour
         col.enabled = true;
 
         // Set the velocity of the rigidbody
-        GetComponent<Rigidbody>().velocity = spiralVelocity;
+        //GetComponent<Rigidbody>().velocity = spiralVelocity;
     }
 }

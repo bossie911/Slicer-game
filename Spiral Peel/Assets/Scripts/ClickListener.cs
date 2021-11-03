@@ -17,7 +17,7 @@ public class ClickListener : MonoBehaviour
             if (!startedSpiral)
             {
                 // Create an instance of spiral generator and give it the scraper object to follow
-                spiralGenerator = Instantiate(spiralGeneratorPrefab, scraper.position, Quaternion.identity);
+                spiralGenerator = Instantiate(spiralGeneratorPrefab, Vector3.zero, Quaternion.identity);
                 startedSpiral = true;
             }
             
@@ -27,9 +27,11 @@ public class ClickListener : MonoBehaviour
         if (!scraper.GetComponent<ScraperMovement>().scraperDown)
         {
             // Tell the spiralGenerator to stop scraping
-            if (spiralGenerator)
+            if (spiralGenerator && startedSpiral)
             {
                 spiralGenerator.GetComponent<MeshGenerator>().StopScraping();
+                spiralGenerator.GetComponent<Rigidbody>().AddForce(transform.TransformDirection(transform.forward * 15), ForceMode.Impulse);
+                spiralGenerator.GetComponent<Rigidbody>().AddForce(transform.TransformDirection(transform.up * 30), ForceMode.Impulse);
                 startedSpiral = false;
             }
         }

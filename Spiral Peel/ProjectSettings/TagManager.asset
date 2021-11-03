@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Scraper
   - Scrapeable
+  - Spiral
   layers:
   - Default
   - TransparentFX

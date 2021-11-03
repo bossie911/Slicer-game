@@ -16,6 +16,8 @@ public class MeshGenerator : MonoBehaviour
     public Vector3 rotationEulerAngles; // The mesh will be rotated this much at each update
     public Vector3 spiralVelocity;  // When the scraping stops, the spiral is accelerated to this velocity
     public float spiralLifeSpan;    // The spiral will be destroyed after this many seconds
+
+    public int spiralSize;
     
     float tZero;    // The time at the start 
     float tEnd;     // The time when the scraping is stopped
@@ -130,6 +132,7 @@ public class MeshGenerator : MonoBehaviour
     {
         int vertexCount = vertices.Length;
         int triangleCount = triangles.Length;
+        spiralSize = vertexCount;
         
         // We need to lengthen the vertices and the triangles arrays
         Vector3[] newVertices = new Vector3[vertexCount + 4];

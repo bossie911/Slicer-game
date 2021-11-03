@@ -12,6 +12,9 @@ public class ScraperMovement : MonoBehaviour
 
     private bool canRotate = true;
 
+    private bool scrapingOnCooldown = false;
+    private float scrapingCooldown = 0.5f;
+
     // Update is called once per frame
     void Update()
     {
@@ -23,7 +26,6 @@ public class ScraperMovement : MonoBehaviour
             scraper.AddForce(transform.TransformDirection(-transform.up * strengthUp), ForceMode.Impulse);
             if (canRotate)
             {
-                Debug.Log("rotate");
                 canRotate = false;
                 StartCoroutine(Rotate());
             }
@@ -63,11 +65,18 @@ public class ScraperMovement : MonoBehaviour
         canRotate = true;
     }
 
+    IEnumerator ResetCooldown()
+    {
+        yield return new WaitForSeconds(scrapingCooldown);
+        scrapingOnCooldown = false; 
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Scrapeable")
+        if (collision.gameObject.tag == "Scrapeable" && !scrapingOnCooldown)
         {
             scraperDown = true;
+
         }
     }
 
@@ -76,6 +85,8 @@ public class ScraperMovement : MonoBehaviour
         if (collision.gameObject.tag == "Scrapeable")
         {
             scraperDown = false;
+            scrapingOnCooldown = true;
+            StartCoroutine("ResetCooldown");
         }     
     }
 } 

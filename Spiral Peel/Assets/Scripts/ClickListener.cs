@@ -27,9 +27,11 @@ public class ClickListener : MonoBehaviour
         if (!scraper.GetComponent<ScraperMovement>().scraperDown)
         {
             // Tell the spiralGenerator to stop scraping
-            if (spiralGenerator)
+            if (spiralGenerator && startedSpiral)
             {
                 spiralGenerator.GetComponent<MeshGenerator>().StopScraping();
+                spiralGenerator.GetComponent<Rigidbody>().AddForce(transform.TransformDirection(transform.forward * 15), ForceMode.Impulse);
+                spiralGenerator.GetComponent<Rigidbody>().AddForce(transform.TransformDirection(transform.up * 30), ForceMode.Impulse);
                 startedSpiral = false;
             }
         }

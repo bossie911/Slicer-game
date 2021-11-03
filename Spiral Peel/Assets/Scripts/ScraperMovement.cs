@@ -30,8 +30,9 @@ public class ScraperMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Scrapeable")
         {
+            /*scraper.constraints = RigidbodyConstraints.None;
             scraper.constraints = RigidbodyConstraints.FreezePositionX;
-            scraper.constraints = RigidbodyConstraints.FreezeRotation;
+            scraper.constraints = RigidbodyConstraints.FreezeRotation;*/
             scraperDown = true;
         }
     }
@@ -40,10 +41,9 @@ public class ScraperMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Scrapeable")
         {
-            scraper.constraints = RigidbodyConstraints.None;
+            /*scraper.constraints = RigidbodyConstraints.None;
             scraper.constraints = RigidbodyConstraints.FreezePositionX;
-            scraper.constraints = RigidbodyConstraints.FreezeRotationY;
-            scraper.constraints = RigidbodyConstraints.FreezeRotationZ;
+            scraper.constraints = RigidbodyConstraints.FreezeRotation;*/
             scraperDown = false;
         }     
     }

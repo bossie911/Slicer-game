@@ -17,7 +17,7 @@ public class ClickListener : MonoBehaviour
             if (!startedSpiral)
             {
                 // Create an instance of spiral generator and give it the scraper object to follow
-                spiralGenerator = Instantiate(spiralGeneratorPrefab, scraper.position, Quaternion.identity);
+                spiralGenerator = Instantiate(spiralGeneratorPrefab, Vector3.zero, Quaternion.identity);
                 startedSpiral = true;
             }
             
